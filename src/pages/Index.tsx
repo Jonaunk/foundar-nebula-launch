@@ -1,8 +1,7 @@
 import { Mail, Instagram, Twitter, Linkedin } from "lucide-react";
-import Logo from "@/components/Logo";
 import NarrativeText from "@/components/NarrativeText";
 import EmailForm from "@/components/EmailForm";
-import { useRef } from "react";
+import React from "react";
 
 const BACKGROUND_STYLE =
   "fixed inset-0 w-full h-full -z-10 overflow-hidden bg-[radial-gradient(ellipse_at_30%_10%,#D9D3F0_0%,#A7C7F2_40%,#C9B4E5_70%,#FFF6F0_100%)]";
@@ -89,17 +88,18 @@ export default function Index() {
       <Starfield />
       <Orbits />
 
-      <main className="flex flex-col items-center justify-center flex-1 relative w-full h-full min-h-0 mx-auto">
-        {/* Main Logo */}
-        <Logo />
-        {/* Updated Narrative Headings */}
+      {/* Main content */}
+      <main className="flex flex-col items-center justify-center flex-1 relative w-full h-full min-h-0 mx-auto select-none"
+        style={{ paddingTop: "2.5vh", paddingBottom: "2.5vh", margin: 0 }}
+      >
         <NarrativeText />
-        {/* Email Subscription Form */}
         <EmailForm />
       </main>
 
-      {/* Footer – simple, small */}
-      <footer className="absolute left-0 right-0 bottom-0 w-full flex items-center justify-center sm:justify-center pb-3 px-4 z-20 select-none">
+      {/* Footer */}
+      <footer className="absolute left-0 right-0 bottom-0 w-full flex items-center justify-center sm:justify-center pb-3 px-4 z-20 select-none"
+        style={{ pointerEvents: 'auto' }}
+      >
         <div className="flex flex-row items-center gap-4 bg-transparent rounded-full px-4 py-1.5">
           <span
             className="uppercase font-bold text-[1.13rem] tracking-wider text-foundar-slate"
@@ -121,7 +121,7 @@ export default function Index() {
           </a>
           <span className="flex flex-row gap-1.5 ml-3">
             <a
-              href="https://instagram.com/"
+              href="https://www.instagram.com/append_ar"
               title="Instagram"
               target="_blank"
               rel="noopener noreferrer"
@@ -130,7 +130,7 @@ export default function Index() {
               <Instagram size={18} />
             </a>
             <a
-              href="https://twitter.com/"
+              href="https://twitter.com/append_ar"
               title="Twitter"
               target="_blank"
               rel="noopener noreferrer"
@@ -139,7 +139,7 @@ export default function Index() {
               <Twitter size={18} />
             </a>
             <a
-              href="https://linkedin.com/"
+              href="https://www.linkedin.com/company/append-ar/"
               title="LinkedIn"
               target="_blank"
               rel="noopener noreferrer"
