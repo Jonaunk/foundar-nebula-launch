@@ -1,4 +1,3 @@
-
 import { useRef } from "react";
 import { Mail, Instagram, Twitter, Linkedin } from "lucide-react";
 
@@ -97,17 +96,14 @@ function FoundarLogo() {
 }
 
 export default function Index() {
-  // Form submit (static for now)
   const inputRef = useRef<HTMLInputElement>(null);
 
   function handleSubscribe(e: React.FormEvent) {
     e.preventDefault();
-    // Optionally show a toast (with useToast)
     if (!inputRef.current?.value) {
       inputRef.current?.focus();
       return;
     }
-    // Replace below with actual email logic if needed
     alert("Gracias por tu interés. Te avisaremos pronto.");
     if (inputRef.current) inputRef.current.value = "";
   }
@@ -117,38 +113,35 @@ export default function Index() {
       className={`${BACKGROUND_STYLE} font-sans flex flex-col min-h-screen h-screen w-full items-center justify-center relative overflow-hidden [&>*]:z-10`}
       style={{ minHeight: "100vh", height: "100dvh" }}
     >
-      {/* Background Nebula, Overlays */}
       <NebulaFog />
       <Starfield />
       <Orbits />
 
       <main className="flex flex-col items-center justify-center flex-1 relative w-full h-full min-h-0 mx-auto">
-        {/* Logo */}
+        {/* Main Logo */}
         <FoundarLogo />
-        {/* Headings */}
-        <h2 className="mt-4 mb-1 text-center text-[clamp(1.12rem,2.33vw,2.25rem)] font-semibold tracking-wide text-foundar-slate drop-shadow-[0_2px_16px_rgba(167,199,242,0.18)]">
-          Donde nacen las ideas que merecen ser acompañadas
+
+        {/* New Heading Hierarchy with Narrative Tone */}
+        <h2 className="mt-6 text-center text-[clamp(1.45rem,2.45vw,2.7rem)] font-semibold tracking-wide text-foundar-slate drop-shadow-[0_2px_16px_rgba(167,199,242,0.18)]">
+          Una plataforma para acompañar misiones que recién comienzan
         </h2>
-        <div className="mb-1">
-          <p className="text-center text-[clamp(0.93rem,1.2vw,1.36rem)] tracking-wide text-foundar-slate/80">
-            Pronto vas a poder impulsar creadores, sueños y trayectos que recién comienzan
-          </p>
-        </div>
-        {/* Description */}
-        <p className="text-center text-[clamp(0.9rem,0.95vw,1.09rem)] font-normal text-foundar-slate/60 max-w-lg mb-5 mt-2 mx-auto">
+        <p className="mt-2 text-center text-[clamp(1.02rem,1.3vw,1.39rem)] font-medium tracking-wide text-foundar-slate/80">
+          Pronto vas a poder impulsar sueños, trayectos y creadores listos para despegar
+        </p>
+        <p className="text-center text-[clamp(0.87rem,0.92vw,1.08rem)] font-normal text-foundar-slate/60 max-w-lg mb-6 mt-3 mx-auto">
           Foundar es una plataforma de crowdfunding narrativa y simbólica que acompaña a jóvenes creadores desde su primer paso.
         </p>
 
-        {/* Email Subscription Form */}
+        {/* Email Subscription Form: perfectly centered, unified, improved contrast */}
         <form
           onSubmit={handleSubscribe}
-          className="backdrop-blur-xl bg-white/20 shadow-none border border-[rgba(255,255,255,0.23)] flex flex-row max-sm:flex-col items-center justify-center gap-2 max-sm:gap-2 px-3.5 py-2 w-[min(410px,95vw)] rounded-full"
+          className="flex flex-row items-center justify-center gap-0 w-[min(410px,95vw)] max-sm:flex-col max-sm:gap-2 backdrop-blur-xl bg-white/20 border border-[rgba(255,255,255,0.23)] rounded-full px-2 py-2 shadow-none"
           style={{
-            boxShadow: "0 1.5px 18px 0 #d9d3f022 inset, 0 0.5px 3px #fff6f055 inset",
-            marginTop: "18px",
-            marginBottom: "14px",
+            marginTop: "4px",
+            marginBottom: "6px",
             minWidth: "340px",
             background: "rgba(255,255,255,0.18)",
+            boxShadow: "0 1.5px 18px 0 #d9d3f022 inset, 0 0.5px 3px #fff6f055 inset",
           }}
           autoComplete="off"
         >
@@ -158,18 +151,17 @@ export default function Index() {
             required
             placeholder="Tu email"
             aria-label="Tu email"
-            className="appearance-none w-full min-w-[120px] max-w-[210px] flex-1 border-none outline-none bg-transparent text-foundar-slate text-[1.13rem] px-4 py-2 rounded-full placeholder:text-foundar-slate/40 shadow-inner focus:ring-0 focus:outline-none"
+            className="appearance-none flex-1 min-w-[120px] max-w-[210px] bg-transparent border-none outline-none text-foundar-slate placeholder:text-foundar-slate/70 placeholder:font-medium placeholder:opacity-90 text-[1.13rem] font-medium px-5 py-3 rounded-full shadow-inner focus:ring-0 focus:outline-none transition-all duration-150"
             style={{
-              boxShadow: "inset 0 0.6px 8px 0 #e1d8f2aa, 0 0.5px 2px #fff6f022 inset",
-              fontWeight: 500,
+              boxShadow: "inset 0 1px 10px 0 #e1d8f2a0, 0 0.5px 2px #fff6f022 inset",
+              letterSpacing: "0.01em",
             }}
           />
           <button
             type="submit"
-            className="flex-shrink-0 px-6 py-2 rounded-full text-white font-semibold text-[1.07rem] shadow-[0_2px_16px_rgba(199,109,170,0.13)] transition-all duration-200"
+            className="ml-2 max-sm:ml-0 max-sm:mt-2 flex-shrink-0 px-7 py-3 rounded-full text-white font-semibold text-[1.07rem] bg-[color:#C76DAA] hover:bg-[color:#D88393] shadow-[0_2px_16px_rgba(199,109,170,0.13)] transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#D8839399]"
             style={{
-              background: "linear-gradient(90deg,#C76DAA,#D88393)",
-              boxShadow: "0 0px 12px #D8839366",
+              boxShadow: "0 0px 13px #D8839366",
               outline: "none",
             }}
             onMouseOver={e => {
@@ -178,7 +170,7 @@ export default function Index() {
             }}
             onMouseOut={e => {
               (e.currentTarget as HTMLButtonElement).style.boxShadow =
-                "0 0px 12px #D8839366";
+                "0 0px 13px #D8839366";
             }}
           >
             Quiero enterarme cuando lancen
