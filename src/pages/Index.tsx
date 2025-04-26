@@ -7,10 +7,8 @@ const BACKGROUND_STYLE =
   "fixed inset-0 w-full h-full -z-10 overflow-hidden bg-[radial-gradient(ellipse_at_30%_10%,#D9D3F0_0%,#A7C7F2_40%,#C9B4E5_70%,#FFF6F0_100%)]";
 
 function NebulaFog() {
-  // Nebula/fog overlays using SVG/blur/layered shapes
   return (
-    <div className="absolute inset-0 w-full h-full pointer-events-none -z-10">
-      {/* Main fog shape */}
+    <div className="absolute inset-0 w-full h-full -z-10">
       <svg width="100%" height="100%" className="absolute top-0 left-0 select-none" style={{ filter: "blur(60px)" }} fill="none">
         <ellipse cx="75%" cy="30%" rx="250" ry="90" fill="#D9D3F0" opacity="0.18" />
         <ellipse cx="25%" cy="50%" rx="190" ry="110" fill="#A7C7F2" opacity="0.17" />
@@ -18,7 +16,6 @@ function NebulaFog() {
         <ellipse cx="60%" cy="60%" rx="190" ry="65" fill="#C9B4E5" opacity="0.16" />
         <ellipse cx="20%" cy="18%" rx="120" ry="60" fill="#C9B4E5" opacity="0.11" />
       </svg>
-      {/* Additional fog layer (subtle movement) */}
       <div className="absolute inset-0">
         <svg width="100%" height="100%" className="w-full h-full animate-nebula-fog" style={{ filter: "blur(100px)" }}>
           <ellipse cx="68%" cy="70%" rx="180" ry="65" fill="#D9D3F0" opacity="0.11" />
@@ -30,7 +27,6 @@ function NebulaFog() {
 }
 
 function Starfield() {
-  // Simple hand-placed or programmatically scattered stars
   const stars = [
     { top: "14%", left: "22%", size: 1.8, opacity: 0.9 },
     { top: "8%", left: "70%", size: 2, opacity: 0.8 },
@@ -43,9 +39,8 @@ function Starfield() {
     { top: "80%", left: "40%", size: 1.0, opacity: 0.6 },
     { top: "12%", left: "90%", size: 1.6, opacity: 0.8 },
   ];
-
   return (
-    <div className="absolute inset-0 w-full h-full pointer-events-none -z-10">
+    <div className="absolute inset-0 w-full h-full -z-10">
       {stars.map((star, i) => (
         <div
           key={i}
@@ -68,7 +63,6 @@ function Starfield() {
 }
 
 function Orbits() {
-  // Use subtle SVG ellipses for planetary orbits
   return (
     <svg className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 -z-10" width="600" height="480" fill="none">
       <ellipse cx="300" cy="240" rx="220" ry="61" stroke="#D9D3F0" strokeWidth="1.1" opacity="0.16" />
@@ -81,14 +75,17 @@ function Orbits() {
 export default function Index() {
   return (
     <div
-      className={`${BACKGROUND_STYLE} font-sans flex flex-col min-h-screen h-screen w-full items-center justify-center relative overflow-hidden [&>*]:z-10`}
-      style={{ minHeight: "100vh", height: "100dvh" }}
+      className="font-sans flex flex-col min-h-screen h-screen w-full items-center justify-center relative overflow-hidden [&>*]:z-10"
+      style={{
+        minHeight: "100vh",
+        height: "100dvh",
+      }}
     >
+      <div className={BACKGROUND_STYLE} aria-hidden="true" />
       <NebulaFog />
       <Starfield />
       <Orbits />
 
-      {/* Main content */}
       <main className="flex flex-col items-center justify-center flex-1 relative w-full h-full min-h-0 mx-auto select-none"
         style={{ paddingTop: "2.5vh", paddingBottom: "2.5vh", margin: 0 }}
       >
@@ -96,7 +93,6 @@ export default function Index() {
         <EmailForm />
       </main>
 
-      {/* Footer */}
       <footer className="absolute left-0 right-0 bottom-0 w-full flex items-center justify-center sm:justify-center pb-3 px-4 z-20 select-none"
         style={{ pointerEvents: 'auto' }}
       >
