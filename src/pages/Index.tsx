@@ -1,5 +1,8 @@
-import { useRef } from "react";
 import { Mail, Instagram, Twitter, Linkedin } from "lucide-react";
+import Logo from "@/components/Logo";
+import NarrativeText from "@/components/NarrativeText";
+import EmailForm from "@/components/EmailForm";
+import { useRef } from "react";
 
 const BACKGROUND_STYLE =
   "fixed inset-0 w-full h-full -z-10 overflow-hidden bg-[radial-gradient(ellipse_at_30%_10%,#D9D3F0_0%,#A7C7F2_40%,#C9B4E5_70%,#FFF6F0_100%)]";
@@ -76,38 +79,7 @@ function Orbits() {
   );
 }
 
-function FoundarLogo() {
-  // Logo: Uppercase, navy slate, blue/lavender soft shadow
-  return (
-    <div
-      className="text-[clamp(2.2rem,7vw,4.6rem)] font-bold tracking-wider mx-auto font-sans uppercase select-none"
-      style={{
-        color: "#323643",
-        letterSpacing: "0.08em",
-        textShadow:
-          "0 2.5px 24px #A7C7F280, 0 0.5px 3px #D9D3F085",
-        filter: "drop-shadow(0 1px 10px #A7C7F2aa)",
-        lineHeight: 1.09,
-      }}
-    >
-      FOUNDAR
-    </div>
-  );
-}
-
 export default function Index() {
-  const inputRef = useRef<HTMLInputElement>(null);
-
-  function handleSubscribe(e: React.FormEvent) {
-    e.preventDefault();
-    if (!inputRef.current?.value) {
-      inputRef.current?.focus();
-      return;
-    }
-    alert("Gracias por tu interés. Te avisaremos pronto.");
-    if (inputRef.current) inputRef.current.value = "";
-  }
-
   return (
     <div
       className={`${BACKGROUND_STYLE} font-sans flex flex-col min-h-screen h-screen w-full items-center justify-center relative overflow-hidden [&>*]:z-10`}
@@ -119,69 +91,16 @@ export default function Index() {
 
       <main className="flex flex-col items-center justify-center flex-1 relative w-full h-full min-h-0 mx-auto">
         {/* Main Logo */}
-        <FoundarLogo />
-
-        {/* New Heading Hierarchy with Narrative Tone */}
-        <h2 className="mt-6 text-center text-[clamp(1.45rem,2.45vw,2.7rem)] font-semibold tracking-wide text-foundar-slate drop-shadow-[0_2px_16px_rgba(167,199,242,0.18)]">
-          Una plataforma para acompañar misiones que recién comienzan
-        </h2>
-        <p className="mt-2 text-center text-[clamp(1.02rem,1.3vw,1.39rem)] font-medium tracking-wide text-foundar-slate/80">
-          Pronto vas a poder impulsar sueños, trayectos y creadores listos para despegar
-        </p>
-        <p className="text-center text-[clamp(0.87rem,0.92vw,1.08rem)] font-normal text-foundar-slate/60 max-w-lg mb-6 mt-3 mx-auto">
-          Foundar es una plataforma de crowdfunding narrativa y simbólica que acompaña a jóvenes creadores desde su primer paso.
-        </p>
-
-        {/* Email Subscription Form: perfectly centered, unified, improved contrast */}
-        <form
-          onSubmit={handleSubscribe}
-          className="flex flex-row items-center justify-center gap-0 w-[min(410px,95vw)] max-sm:flex-col max-sm:gap-2 backdrop-blur-xl bg-white/20 border border-[rgba(255,255,255,0.23)] rounded-full px-2 py-2 shadow-none"
-          style={{
-            marginTop: "4px",
-            marginBottom: "6px",
-            minWidth: "340px",
-            background: "rgba(255,255,255,0.18)",
-            boxShadow: "0 1.5px 18px 0 #d9d3f022 inset, 0 0.5px 3px #fff6f055 inset",
-          }}
-          autoComplete="off"
-        >
-          <input
-            ref={inputRef}
-            type="email"
-            required
-            placeholder="Tu email"
-            aria-label="Tu email"
-            className="appearance-none flex-1 min-w-[120px] max-w-[210px] bg-transparent border-none outline-none text-foundar-slate placeholder:text-foundar-slate/70 placeholder:font-medium placeholder:opacity-90 text-[1.13rem] font-medium px-5 py-3 rounded-full shadow-inner focus:ring-0 focus:outline-none transition-all duration-150"
-            style={{
-              boxShadow: "inset 0 1px 10px 0 #e1d8f2a0, 0 0.5px 2px #fff6f022 inset",
-              letterSpacing: "0.01em",
-            }}
-          />
-          <button
-            type="submit"
-            className="ml-2 max-sm:ml-0 max-sm:mt-2 flex-shrink-0 px-7 py-3 rounded-full text-white font-semibold text-[1.07rem] bg-[color:#C76DAA] hover:bg-[color:#D88393] shadow-[0_2px_16px_rgba(199,109,170,0.13)] transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#D8839399]"
-            style={{
-              boxShadow: "0 0px 13px #D8839366",
-              outline: "none",
-            }}
-            onMouseOver={e => {
-              (e.currentTarget as HTMLButtonElement).style.boxShadow =
-                "0 0 0 0.13rem #D8839399,0 2.5px 18px #C76DAA40";
-            }}
-            onMouseOut={e => {
-              (e.currentTarget as HTMLButtonElement).style.boxShadow =
-                "0 0px 13px #D8839366";
-            }}
-          >
-            Quiero enterarme cuando lancen
-          </button>
-        </form>
+        <Logo />
+        {/* Updated Narrative Headings */}
+        <NarrativeText />
+        {/* Email Subscription Form */}
+        <EmailForm />
       </main>
 
       {/* Footer – simple, small */}
       <footer className="absolute left-0 right-0 bottom-0 w-full flex items-center justify-center sm:justify-center pb-3 px-4 z-20 select-none">
         <div className="flex flex-row items-center gap-4 bg-transparent rounded-full px-4 py-1.5">
-          {/* FOUNDAR Logo */}
           <span
             className="uppercase font-bold text-[1.13rem] tracking-wider text-foundar-slate"
             style={{
@@ -191,9 +110,7 @@ export default function Index() {
           >
             FOUNDAR
           </span>
-          {/* Divider */}
           <span className="w-[1.1px] h-4 bg-foundar-slate/20 rounded-full mx-1"></span>
-          {/* Email */}
           <a
             href="mailto:hello@append.com.ar"
             className="flex items-center gap-1 text-foundar-slate/80 hover:text-foundar-blue/90 text-[1.04rem] transition-colors"
@@ -202,7 +119,6 @@ export default function Index() {
           >
             <Mail size={17} className="opacity-70" /> hello@append.com.ar
           </a>
-          {/* Social Icons */}
           <span className="flex flex-row gap-1.5 ml-3">
             <a
               href="https://instagram.com/"
