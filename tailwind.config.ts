@@ -18,6 +18,9 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				sans: ['Poppins', 'Inter', 'DM Sans', 'sans-serif'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -61,7 +64,14 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+				"foundar-slate": "#323643",
+				"foundar-magenta": "#C76DAA",
+				"foundar-plum": "#D88393",
+				"foundar-lavender": "#D9D3F0",
+				"foundar-blue": "#A7C7F2",
+				"foundar-violet": "#C9B4E5",
+				"foundar-cream": "#FFF6F0",
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -84,11 +94,46 @@ export default {
 					to: {
 						height: '0'
 					}
-				}
+				},
+				'fade-in': {
+					'0%': { opacity: '0' },
+					'100%': { opacity: '1' }
+				},
+				'fade-out': {
+					'0%': { opacity: '1' },
+					'100%': { opacity: '0' }
+				},
+				'scale-in': {
+					'0%': { transform: 'scale(0)' },
+					'100%': { transform: 'scale(1)' }
+				},
+				'scale-out': {
+					'0%': { transform: 'scale(1)' },
+					'100%': { transform: 'scale(0)' }
+				},
+				'slide-in': {
+					'0%': { transform: 'translateX(-100%)' },
+					'100%': { transform: 'translateX(0)' }
+				},
+				'slide-out': {
+					'0%': { transform: 'translateX(0)' },
+					'100%': { transform: 'translateX(-100%)' }
+				},
+				'nebula-fog': {
+					'0%': { opacity: '0.8' },
+					'100%': { opacity: '0.4' },
+				},
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'fade-in': 'fade-in 0.3s ease-in',
+				'fade-out': 'fade-out 0.3s ease-out',
+				'scale-in': 'scale-in 0.3s ease-in',
+				'scale-out': 'scale-out 0.3s ease-out',
+				'slide-in': 'slide-in 0.3s ease-in',
+				'slide-out': 'slide-out 0.3s ease-out',
+				'nebula-fog': 'nebula-fog 6s ease-in-out infinite alternate',
 			}
 		}
 	},
